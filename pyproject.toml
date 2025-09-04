@@ -1,0 +1,64 @@
+# pyproject.toml - Modern Python project configuration
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "ai-data-pipeline"
+version = "0.1.0"
+description = "AI-Powered Automated Data Pipeline with Hybrid Classification and Data Vault 2.0 Generation"
+authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+# Web Framework & API
+fastapi = "^0.104.1"
+uvicorn = {extras = ["standard"], version = "^0.24.0"}
+pydantic = {extras = ["email"], version = "^2.5.0"}
+pydantic-settings = "^2.1.0"
+
+# Database & ORM
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.23"}
+asyncpg = "^0.29.0"
+redis = "^5.0.1"
+
+# Background Tasks
+celery = {extras = ["redis"], version = "^5.3.4"}
+
+# AI & ML
+anthropic = "^0.7.8"
+google-generativeai = "^0.3.2"
+openai = "^1.3.7"
+scikit-learn = "^1.3.2"
+
+# Data Processing
+pandas = "^2.1.4"
+numpy = "^1.25.2"
+
+# Configuration & Environment
+python-dotenv = "^1.0.0"
+pyyaml = "^6.0.1"
+
+# Utilities
+httpx = "^0.25.2"
+rich = "^13.7.0"
+loguru = "^0.7.2"
+click = "^8.1.7"
+
+[tool.poetry.group.dev.dependencies]
+# Testing
+pytest = "^7.4.3"
+pytest-asyncio = "^0.21.1"
+pytest-cov = "^4.1.0"
+
+# Code Quality
+black = "^23.11.0"
+isort = "^5.12.0"
+flake8 = "^6.1.0"
+mypy = "^1.7.1"
+
+[tool.poetry.scripts]
+ai-pipeline = "ai_pipeline.cli:main"
